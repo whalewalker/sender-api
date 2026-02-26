@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 export const TemplateBlockSchema = z.object({
-  id: z.string().min(1),
+  id: z.string().min(1).describe('The id of the block'),
   type: z.enum([
     'header',
     'text',
@@ -11,7 +11,7 @@ export const TemplateBlockSchema = z.object({
     'footer',
     'spacer',
     'columns',
-  ]),
+  ]).describe('The type of the block'),
   props: z.record(z.string(), z.unknown()).default({}),
 });
 
